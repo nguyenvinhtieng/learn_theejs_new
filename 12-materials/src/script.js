@@ -70,17 +70,29 @@ const scene = new THREE.Scene()
 // const material = new THREE.MeshStandardMaterial()
 // material.metalness = 0.45
 // material.roughness = 0.65
+// ịn ảnh vào bề mặt vật liệu
 // material.map = colorTexture
-// material.aoMap = ambientOcclusionTexture
-// material.aoMapIntensity = 1
-// material.displacementMap = heightTexture
-// material.displacementScale = 0.05
-// material.metalnessMap = metalnessTexture
-// material.roughnessMap = roughnessTexture
-// material.normalMap = normalTexture
-// material.normalScale.set(0.5, 0.5)
-// material.transparent = true
-// material.alphaMap = alphaTexture
+// Thiết lập ảnh cho ánh sáng xung quanh (ambient occlusion)
+// material.aoMap = ambientOcclusionTexture;
+// material.aoMapIntensity = 1;
+
+// Thiết lập ảnh độ cao (displacement) => Lưu ý bề mặt cần có nhiều vertices
+// material.displacementMap = heightTexture;
+// material.displacementScale = 0.05;
+
+// Thiết lập ảnh kim loại (metalness)
+// material.metalnessMap = metalnessTexture;
+
+// Thiết lập ảnh độ nhám (roughness)
+// material.roughnessMap = roughnessTexture;
+
+// Thiết lập ảnh bình thường (normal)
+// material.normalMap = normalTexture;
+// material.normalScale.set(0.5, 0.5);
+
+// Thiết lập thuộc tính trong suốt và ảnh alpha
+// material.transparent = true;
+// material.alphaMap = alphaTexture;
 
 const material = new THREE.MeshStandardMaterial()
 material.metalness = 0.7
