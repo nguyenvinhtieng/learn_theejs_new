@@ -18,8 +18,8 @@ const scene = new THREE.Scene()
 // Models
 
 
-const dracoLoader = new DRACOLoader()
-dracoLoader.setDecoderPath('/draco/')
+const dracoLoader = new DRACOLoader() // giải thuật giúp giảm dung lượng file
+dracoLoader.setDecoderPath('/draco/') // đường dẫn đến file giải thuật
 
 const gltfLoader = new GLTFLoader()
 gltfLoader.setDRACOLoader(dracoLoader)
