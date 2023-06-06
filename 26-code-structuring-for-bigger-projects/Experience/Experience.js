@@ -4,6 +4,10 @@ import Time from "./Utils/Time";
 import Camera from "./Camera";
 import Renderer from "./Renderer";
 import World from "./World/World";
+import Resources from "./Utils/Resources";
+import sources from "./sources";
+import Debug from "./Utils/Debug";
+
 
 let instance = null;
 
@@ -13,17 +17,19 @@ export default class Experience {
     if (instance) {
       return instance;
     }
+    window.experience = this;
 
     instance = this;
 
     this.canvas = canvas;
+    this.debug = new Debug();
     this.sizes = new Sizes();
     this.time = new Time();
     this.scene = new THREE.Scene();
     this.camera = new Camera()
     this.renderer = new Renderer();
+    this.resources = new Resources(sources);
     this.world = new World();
-
     this.sizes.on('resize', this.resize.bind(this));
     this.time.on('tick', this.update.bind(this));
 
@@ -36,6 +42,31 @@ export default class Experience {
 
   update() {
     this.camera.update();
+    this.world.update();
     this.renderer.update();
+  }
+
+  destroy() {
+    this.sizes.off('resize');
+    this.time.off('tick');
+
+    this.scene.traverse((child) => {
+      if(child instanceof THREE.Mesh) {
+        if(child.geometry) {
+          child.geometry.dispose()
+        }
+        if(child.material) {
+          for(const key in child.material) {
+            const value = child.material[key]
+            if(value && typeof value.dispose === 'function') {
+              value.dispose()
+            }
+          }
+        }
+      }
+    });
+
+    // this.camera.instance.dispose();
+    this.renderer.instance.dispose();
   }
 }
