@@ -21,7 +21,10 @@ const scene = new THREE.Scene()
  */
 // Geometry
 const geometry = new THREE.PlaneGeometry(1, 1, 32, 32)
-
+const uv = geometry.attributes.uv.array
+for(let i = 0; i < uv.length / 2; i++) {
+    console.log(uv[i * 2] , "---" , uv[i * 2 + 1] )
+}
 // Material
 const material = new THREE.ShaderMaterial({
     vertexShader: testVertexShader,

@@ -1,4 +1,4 @@
-varying vec2 uUv;
+varying vec2 vUv;
 
 void main()
 {
@@ -9,5 +9,5 @@ void main()
 
     // Pattern 3
 
-    uUv = uv;
+    vUv = uv;
 }
