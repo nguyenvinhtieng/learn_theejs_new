@@ -64,6 +64,7 @@ body
     font-family: Helvetica, Arial, sans-serif;
     cursor: help;
     transform: scale(0,0);
+    transition: all 0.2s linear;
 }
 
 .point .text {
