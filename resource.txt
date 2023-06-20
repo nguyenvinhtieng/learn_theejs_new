@@ -1,0 +1,14 @@
+Model Free 
+https://market.pmnd.rs/
+
+Google Fonts Helper
+https://gwfh.mranftl.com/fonts
+
+React Drei
+https://github.com/pmndrs/drei 
+
+
+React Rapier
+https://rapier.rs/docs/api/javascript/JavaScript3D
+
+https://docs.pmnd.rs/react-three-fiber/getting-started/introduction
